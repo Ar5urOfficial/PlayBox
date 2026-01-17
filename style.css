@@ -1,0 +1,65 @@
+:root { 
+    --gold-top: #ebbf7c;
+    --gold-bot: #6b5739;
+    --bg-black: #0b0b0b;
+    --panel-dark: #111;
+}
+
+body { margin: 0; font-family: 'Segoe UI', sans-serif; background: var(--bg-black); color: white; display: flex; height: 100vh; overflow: hidden; }
+
+/* Sidebar */
+.sidebar { 
+    width: 320px; 
+    background: var(--panel-dark); 
+    border-right: 2px solid var(--gold-bot); 
+    padding: 20px; 
+    display: flex; 
+    flex-direction: column; 
+    box-sizing: border-box; 
+}
+
+.logo-container { text-align: center; margin-bottom: 25px; flex-shrink: 0; }
+.main-logo { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+
+/* Wrapper zapobiega nachodzeniu przycisków */
+.controls-wrapper { display: flex; flex-direction: column; gap: 15px; flex-shrink: 0; margin-bottom: 10px; }
+
+.btn-add { 
+    background: linear-gradient(135deg, var(--gold-top), var(--gold-bot));
+    border: none; color: black; padding: 14px; border-radius: 8px; 
+    cursor: pointer; font-weight: 900; width: 100%;
+    text-transform: uppercase; transition: 0.2s;
+}
+.btn-add:hover { transform: scale(1.02); filter: brightness(1.1); }
+
+#search-input { 
+    width: 100%; padding: 12px; background: #1a1a1a; 
+    border: 1px solid #333; border-radius: 8px; color: white; 
+    box-sizing: border-box; 
+}
+
+/* Lista gier */
+#game-list { flex-grow: 1; overflow-y: auto; padding-top: 10px; }
+.category { color: var(--gold-top); font-size: 11px; font-weight: bold; text-transform: uppercase; margin: 20px 0 10px 5px; opacity: 0.7; }
+
+.game-item { 
+    background: #181818; border: none; color: white; padding: 12px; margin-bottom: 8px; 
+    width: 100%; text-align: left; border-radius: 8px; cursor: pointer; transition: 0.2s;
+    display: flex; justify-content: space-between; align-items: center; gap: 10px; box-sizing: border-box;
+}
+.game-item:hover { background: #222; border-left: 4px solid var(--gold-top); }
+
+.game-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex-grow: 1; font-weight: 500; }
+.star-icon { color: var(--gold-top); font-size: 16px; flex-shrink: 0; }
+
+/* Menu kontekstowe */
+#context-menu { position: fixed; background: #1a1a1a; border: 1px solid #444; border-radius: 8px; display: none; z-index: 1000; min-width: 160px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); }
+.menu-item { padding: 12px 15px; cursor: pointer; font-size: 13px; }
+.menu-item:hover { background: var(--gold-bot); color: white; }
+
+/* Widok gry */
+.main-view { flex-grow: 1; background: #000; display: flex; position: relative; }
+iframe { width: 100%; height: 100%; border: none; display: none; }
+.empty-state { margin: auto; text-align: center; }
+.empty-state h1 { font-size: 80px; margin: 0; opacity: 0.05; color: var(--gold-top); }
+.empty-state p { opacity: 0.2; letter-spacing: 4px; font-weight: bold; }

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>PLAYBOX</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="context-menu">
+        <div class="menu-item" onclick="renameGame()">✏️ Zmień nazwę</div>
+        <div id="fav-toggle-text" class="menu-item" onclick="toggleFavoriteMenu()">⭐ Ulubione</div>
+        <div class="menu-item" style="color: #ff4d5a; border-top: 1px solid #333;" onclick="deleteGame()">🗑️ Usuń</div>
+    </div>
+
+    <aside class="sidebar">
+        <div class="logo-container">
+            <img src="logo.png" alt="PLAYBOX" class="main-logo">
+        </div>
+
+        <div class="controls-wrapper">
+            <div class="add-zone">
+                <input type="file" id="file-input" accept=".html" style="display: none;">
+                <button class="btn-add" onclick="document.getElementById('file-input').click()">DODAJ GRĘ (.HTML)</button>
+            </div>
+
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Szukaj gry..." oninput="render()">
+            </div>
+        </div>
+        
+        <div id="game-list"></div>
+    </aside>
+
+    <main class="main-view">
+        <div id="placeholder" class="empty-state">
+            <h1>PLAYBOX</h1>
+            <p>WYBIERZ GRĘ Z LISTY</p>
+        </div>
+        <iframe id="game-frame"></iframe>
+    </main>
+
+    <script src="favorite.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
