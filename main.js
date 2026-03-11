@@ -14,7 +14,7 @@ function render() {
     const others = filtered.filter(g => !g.fav);
 
     if (favs.length > 0) {
-        addCategory('Moje ulubioneee');
+        addCategory('Moje ulubione');
         favs.forEach(g => createGameElement(g));
     }
     if (others.length > 0) {
@@ -71,4 +71,5 @@ fileInput.onchange = (e) => {
 };
 
 window.onclick = () => contextMenu.style.display = 'none';
+
 render();
